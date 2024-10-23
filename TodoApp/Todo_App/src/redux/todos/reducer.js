@@ -13,7 +13,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         {
           id: nextTodoId(state),
-          text: action.payload, // assuming action.payload contains the todo text
+          text: action.payload,
           completed: false,
         }
       ];

@@ -9,11 +9,9 @@ export const colorChanged=(color,changeType)=>{
     }
 }
 
-export const filterStatusChanged=(status)=>{
-    return{
-        type:STATUSCHANGED,
-        payload:{
-            status
-        }
-    }
-}
+export const filterStatusChanged = (status) => {
+    return {
+        type: STATUSCHANGED,
+        payload: status,  // Pass status directly as a string
+    };
+};

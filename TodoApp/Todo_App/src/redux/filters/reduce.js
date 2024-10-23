@@ -2,33 +2,26 @@ import { COLORSCHANGED, STATUSCHANGED } from "./actionType";
 import initialState from "./initialState";
 
 const reducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case STATUSCHANGED:
             return {
                 ...state,
-                status: action.payload
+                status: action.payload,  // Set the status directly to the string payload
             };
 
         case COLORSCHANGED:
-            // eslint-disable-next-line no-case-declarations
             const { color, changeType } = action.payload;
-
-            switch(changeType) {
+            switch (changeType) {
                 case 'added':
                     return {
                         ...state,
-                        colors: [
-                            ...state.colors,
-                            color
-                        ]
+                        colors: [...state.colors, color],
                     };
-
                 case 'remove':
                     return {
                         ...state,
-                        colors: state.colors.filter(existingColor => existingColor !== color)
+                        colors: state.colors.filter(existingColor => existingColor !== color),
                     };
-
                 default:
                     return state;
             }
@@ -36,6 +29,6 @@ const reducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
 
 export default reducer;
