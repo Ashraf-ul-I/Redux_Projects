@@ -4,6 +4,7 @@ import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
 import CartList from './CartList';
 import { useState } from 'react';
 import Products from './Products';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const [isCartVisible, setCartVisible] = useState(false);
@@ -12,7 +13,9 @@ const Navbar = () => {
   const handleConditionalRendering = () => {
     setCartVisible(!isCartVisible);
   };
-
+  const cartItems=useSelector(state=>state.products.cartItems);
+  const totalCartQuantity=cartItems.reduce((total,item)=>total+item.cartQuantity,0);
+console.log(cartItems)
   return (
     <>
       <nav className="bg-white-400 py-4 shadow-md ">
@@ -34,8 +37,9 @@ const Navbar = () => {
               <span
                 id="lws-totalCart"
                 className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center"
+
               >
-                0
+                {totalCartQuantity}
               </span>
             </a>
           </div>
