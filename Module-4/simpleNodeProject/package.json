@@ -1,0 +1,15 @@
+{
+  "name": "simplenodeproject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ashraful",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "redux": "^5.0.1",
+    "thunk": "^0.0.1"
+  }
+}
