@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { colorChanged, filterStatusChanged } from '../redux/filters/action';
-
+import React from 'react';
 const numberOdtodos = (no_of_todos) => {
     switch (no_of_todos) {
         case 0:

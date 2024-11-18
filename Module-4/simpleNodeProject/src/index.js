@@ -1,48 +1,36 @@
+// Assuming all components are working individually
+const { createStore, applyMiddleware } = require("redux");
+const thunk = require("redux-thunk").default;
+// const fetchTodos = require('./fetchTodos.js'); // Ensure this points to your correct file
 
-const {createStore,applyMiddleware}=require("redux");
-const { delayActionMiddleWare, fetchDataMiddleWare } = require("./middleWares");
-//initial state
-const {fetchTodos}=require('./fetchTodos.js')
+const initialState = { todos: [] };
 
-const initialState={
-   todos: []
+const todoReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case "todos/todoLoaded":
+            return {
+                ...state,
+                todos: [...state.todos, ...action.payload]
+            };
+        default:
+            return state;
+    }
 };
 
-const todoReducer=(state=initialState,action)=>{
-    switch(action.type){
-        case "todos/todoAdded":
-            return{
-                ...state,
-                todos:[
-                    ...state.todos,
-                    {
-                        title:action.payload
-                    }
-                ]
-            }
-        case "todos/todoLoaded":
-            return{
-                ...state,
-                todos:[
-                    ...state.todos,
-                    ...action.payload
-                ]
-            }
-    }
-}
+const store = createStore(todoReducer, applyMiddleware(thunk));
 
-const store=createStore(todoReducer,applyMiddleware(delayActionMiddleWare,fetchDataMiddleWare));
 
-//subscription
-store.subscribe(()=>{
-    console.log(store.getState())
+// Subscription for testing output
+store.subscribe(() => {
+    console.log("Updated State:", store.getState());
 });
 
-//dispatch action
+const fetchData = () => async (dispatch) => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+    const data = await response.json();
+    dispatch({ type: "DATA_LOADED", payload: [data] });
+};
 
-// store.dispatch({
-//     type:"todos/todoAdded",
-//     payload:"Learn Redux from LWs"
-// })
 
-store.dispatch(fetchTodos)
+store.dispatch(fetchData());
+;

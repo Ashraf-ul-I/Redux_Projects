@@ -1,0 +1,22 @@
+{
+  "transactions": [
+    {
+      "name": "From me",
+      "type": "income",
+      "amount": 500,
+      "id": 2
+    },
+    {
+      "name": "Buy shoes",
+      "type": "expense",
+      "amount": 3000,
+      "id": 3
+    },
+    {
+      "name": "Salary",
+      "type": "income",
+      "amount": 5900,
+      "id": 4
+    }
+  ]
+}

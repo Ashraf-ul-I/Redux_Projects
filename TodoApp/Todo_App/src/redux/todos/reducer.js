@@ -1,4 +1,4 @@
-import { ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, TOGGLED } from "./actionTypes"
+import { ADDED, ALLCOMPLETED, CLEARCOMPLETED, COLORSELECTED, DELETED, LOADED, TOGGLED } from "./actionTypes"
 import initialState from "./initialState"
 
 const nextTodoId = (todos) => {
@@ -8,6 +8,9 @@ const nextTodoId = (todos) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+
+    case LOADED:
+      return action.payload; //because the fetching data we get as array so dont need to do anything though its not a best practices
     case ADDED:
       return [
         ...state,

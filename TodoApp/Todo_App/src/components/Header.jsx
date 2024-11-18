@@ -4,6 +4,7 @@ import plusImage from '../assets/images/plus.png'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { added, allCompleted, clearCompleted } from '../redux/todos/action'
+import React from 'react';
 const Header = () => {
     const dispatch=useDispatch()
 

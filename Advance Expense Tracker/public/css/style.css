@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header,
+.footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #4338ca;
+    color: whitesmoke;
+}
+
+.header h1 {
+    font-size: 2rem;
+}
+
+.main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.top_card {
+    background-color: #4338ca;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.top_card p {
+    font-size: 0.9rem;
+    color: #d6d6d6;
+}
+
+.top_card h3 {
+    font-size: 1.8rem;
+}
+
+.form {
+    background-color: #f5f5f5;
+    padding: 20px;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form h3 {
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group.radio {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.radio_group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4338ca;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #094d3d;
+}
+
+.cancel_edit {
+    display: none;
+    background-color: #e6425e;
+    margin-top: 10px;
+}
+
+.cancel_edit:hover {
+    background-color: #9e1028;
+}
+
+.second_heading {
+    align-self: flex-start;
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 20px;
+}
+
+.conatiner_of_list_of_transactions {
+    width: 100%;
+}
+
+.conatiner_of_list_of_transactions ul {
+    list-style: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.transaction {
+    background-color: #4338ca;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.transaction p {
+    margin: 0;
+}
+
+.income {
+    background-color: #4338ca;
+}
+
+.expense {
+    background-color: #e6425e;
+}
+
+.transaction .right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+.icon {
+    width: 14px;
+    height: 14px;
+}
+
+.monthly_earned {
+    background-color: #4338ca;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+@media (max-width: 450px) {
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .top_card,
+    .form,
+    .transaction {
+        width: 100%;
+    }
+
+    * {
+        font-size: 90%;
+    }
+}
